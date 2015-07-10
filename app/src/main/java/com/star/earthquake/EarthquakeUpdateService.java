@@ -256,8 +256,10 @@ public class EarthquakeUpdateService extends IntentService {
         earthquakeNotificationBuilder
                 .setContentIntent(launchIntent)
                 .setWhen(quake.getDate().getTime())
+                .setContentInfo("info")
                 .setContentTitle("M: " + quake.getMagnitude())
-                .setContentText(quake.getDetails());
+                .setContentText(quake.getDetails())
+                .setAutoCancel(true);
 
         if (quake.getMagnitude() > 6) {
 //            Uri ringURI = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
